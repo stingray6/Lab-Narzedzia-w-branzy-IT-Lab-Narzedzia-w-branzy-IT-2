@@ -4,17 +4,24 @@ if [ "$1" = "--date" ]; then
     date
 
 elif [ "$1" = "--logs" ]; then
-    for i in $(seq 1 100)
+    if  [ -n "$2" ]; then
+        count=$2
+    else
+        count=100
+    fi
+
+    for i in $(seq 1 "$count")
     do
         filename="log${i}.txt"
         echo "Nazwa pliku: $filename" > "$filename"
         echo "Skrypt: $0" >> "$filename"
         echo "Data: $(date)" >> "$filename"
     done
-    echo "Utworzono 100 plików log1.txt - log100.txt"
+
+    echo "Utworzono $count plików"
 
 else
     echo "Opcje:"
-    echo "  --date   wyświetla datę"
-    echo "  --logs   tworzy 100 plików"
+    echo "  --date    wyświetla datę"
+    echo "  --logs x  tworzy x plików (domyślnie 100)"
 fi
