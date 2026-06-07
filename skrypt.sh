@@ -20,6 +20,22 @@ elif [ "$1" = "--logs" ] || [ "$1" = "-l" ]; then
 
     echo "Utworzono $count plików"
 
+elif [ "$1" = "--init" ]; then
+    REPO_URL=$(git config --get remote.origin.url)
+
+    if [ -z "$REPO_URL" ]; then
+        echo "Brak repozytorium zdalnego!"
+        exit 1
+    fi
+
+    git clone "$REPO_URL"
+    DIR_NAME=$(basename "$REPO_URL" .git)
+
+    export PATH="$PATH:$(pwd)/$DIR_NAME"
+
+    echo "Repozytorium: $REPO_URL"
+    echo "Sklonowano do katalogu docelowago i zaktualizowano PATH: $(pwd)/$DIR_NAME"
+
 elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     echo "Dostępne opcje:"
     echo "  --date           wyświetla aktualną datę"
