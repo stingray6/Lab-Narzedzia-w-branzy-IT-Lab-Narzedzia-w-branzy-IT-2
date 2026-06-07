@@ -22,9 +22,9 @@ elif [ "$1" = "--logs" ]; then
 
 elif [ "$1" = "--help" ]; then
     echo "Dostępne opcje:"
-    echo "  --date           wyświetla aktualną datę"
-    echo "  --logs LICZBA    tworzy LICZBA plików logX.txt (LICZBA=100 jeśli nie podano)"
-    echo "  --help           wyświetla pomoc"
+    echo "  [-d | --date]           wyświetla aktualną datę"
+    echo "  [-l | --logs] LICZBA    tworzy LICZBA plików logX.txt (LICZBA=100 jeśli nie podano)"
+    echo "  [-h | --help]           wyświetla pomoc"
 
 else
     echo "Aby wyświetlić pomoc: $0 --help "
