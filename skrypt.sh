@@ -36,6 +36,27 @@ elif [ "$1" = "--init" ]; then
     echo "Repozytorium: $REPO_URL"
     echo "Sklonowano do katalogu docelowago i zaktualizowano PATH: $(pwd)/$DIR_NAME"
 
+elif [ "$1" = "--error" ]; then
+    if  [ -n "$2" ]; then
+        count=$2
+    else
+        count=100
+    fi
+
+    for i in $(seq 1 "$count")
+    do
+        dirname="error$i"
+        filename="error${i}.txt"
+        filepath="$dirname/$filename"
+
+        mkdir -p "$dirname"
+
+        echo "Nazwa pliku: $filename" > "$filepath"
+
+    done
+
+    echo "Utworzono $count plików"
+
 elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     echo "Dostępne opcje:"
     echo "  --date           wyświetla aktualną datę"
