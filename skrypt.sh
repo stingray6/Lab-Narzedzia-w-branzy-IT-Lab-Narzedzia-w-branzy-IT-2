@@ -20,7 +20,7 @@ elif [ "$1" = "--logs" ]; then
 
     echo "Utworzono $count plików"
 
-elif [ "$1" = "--error" ]; then
+elif [ "$1" = "--error" ] || [ "$1" = "-e" ]; then
     if  [ -n "$2" ]; then
         count=$2
     else
