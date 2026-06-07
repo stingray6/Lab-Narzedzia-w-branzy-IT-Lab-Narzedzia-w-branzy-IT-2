@@ -36,7 +36,7 @@ elif [ "$1" = "--init" ]; then
     echo "Repozytorium: $REPO_URL"
     echo "Sklonowano do katalogu docelowago i zaktualizowano PATH: $(pwd)/$DIR_NAME"
 
-elif [ "$1" = "--error" ]; then
+elif [ "$1" = "--error" ] || [ "$1" = "-e" ]; then
     if  [ -n "$2" ]; then
         count=$2
     else
