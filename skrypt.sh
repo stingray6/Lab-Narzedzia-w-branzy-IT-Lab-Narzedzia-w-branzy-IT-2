@@ -24,6 +24,8 @@ elif [ "$1" = "--help" ]; then
     echo "Dostępne opcje:"
     echo "  [-d | --date]           wyświetla aktualną datę"
     echo "  [-l | --logs] LICZBA    tworzy LICZBA plików logX.txt (LICZBA=100 jeśli nie podano)"
+    echo "  [--init]                klonuje repozytorium do bieżącego folderu i ustawia PATH"
+    echo "  [-e | --error] LICZBA   tworzy LICZBA plików errorX/errorX.txt (LICZBA=100 jeśli nie podano)"
     echo "  [-h | --help]           wyświetla pomoc"
 
 else
